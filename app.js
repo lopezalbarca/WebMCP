@@ -158,39 +158,46 @@ function setSupport(available, message) {
 }
 
 function registerWebMcpTools() {
-  const modelContext = navigator.modelContext;
-  if (!modelContext) {
-    setSupport(
-      false,
-      "Sin soporte nativo detectado. Usa polyfill (mcp-b) o un navegador compatible."
-    );
-    writeLog("WebMCP no esta disponible en navigator.modelContext.");
-    return;
-  }
-
-  const tools = getTools();
-
-  if (typeof modelContext.registerTool === "function") {
-    for (const tool of tools) {
-      const registration = modelContext.registerTool(tool);
-      if (registration && typeof registration.unregister === "function") {
-        toolRegistrations.push(registration);
-      }
+  try {
+    const modelContext = navigator.modelContext;
+    if (!modelContext) {
+      setSupport(
+        false,
+        "Sin soporte nativo detectado. Usa navegador compatible o bridge WebMCP."
+      );
+      writeLog("WebMCP no esta disponible en navigator.modelContext.");
+      return;
     }
-    setSupport(true, "WebMCP activo mediante registerTool().");
-    writeLog(`Registradas ${tools.length} herramientas con registerTool().`);
-    return;
-  }
 
-  if (typeof modelContext.provideContext === "function") {
-    modelContext.provideContext({ tools });
-    setSupport(true, "WebMCP activo mediante provideContext().");
-    writeLog(`Publicadas ${tools.length} herramientas con provideContext().`);
-    return;
-  }
+    const tools = getTools();
 
-  setSupport(false, "Se detecto modelContext, pero sin API de registro usable.");
-  writeLog("modelContext presente, pero no expone registerTool/provideContext.");
+    if (typeof modelContext.registerTool === "function") {
+      for (const tool of tools) {
+        const registration = modelContext.registerTool(tool);
+        if (registration && typeof registration.unregister === "function") {
+          toolRegistrations.push(registration);
+        }
+      }
+      setSupport(true, "WebMCP activo mediante registerTool().");
+      writeLog(`Registradas ${tools.length} herramientas con registerTool().`);
+      return;
+    }
+
+    if (typeof modelContext.provideContext === "function") {
+      modelContext.provideContext({ tools });
+      setSupport(true, "WebMCP activo mediante provideContext().");
+      writeLog(`Publicadas ${tools.length} herramientas con provideContext().`);
+      return;
+    }
+
+    setSupport(false, "Se detecto modelContext, pero sin API de registro usable.");
+    writeLog("modelContext presente, pero no expone registerTool/provideContext.");
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Error desconocido al registrar WebMCP.";
+    setSupport(false, "Error al inicializar WebMCP (revisa bridge/cliente MCP).");
+    writeLog(`Error WebMCP: ${message}`);
+  }
 }
 
 taskForm.addEventListener("submit", (event) => {
