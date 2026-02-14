@@ -38,22 +38,21 @@ Publicar en GitHub Pages solo aloja la web; no activa por si mismo el acceso de 
 
 ## Variante declarativa (sin JS de registro)
 
-La variante declarativa vive en la misma `index.html`, con atributos `tool-*`
-en formularios HTML (sin usar `navigator.modelContext` en ese bloque).
+La variante declarativa esta en `declarative.html`, separada de la pagina JS.
+Usa atributos HTML en formularios (sin usar `navigator.modelContext`):
 
 - Esta variante es experimental y puede cambiar.
 - Si el navegador no reconoce esos atributos, la pagina sigue funcionando como
   HTML normal.
-- Para GitHub Pages, la demo declarativa usa JavaScript cliente local
-  (`declarative-app.js`) y no requiere backend.
-- Para evitar colisiones con las tools imperativas de `app.js`, los nombres
-  declarativos usan prefijo `decl_` (`decl_add_task`, `decl_list_tasks`,
-  `decl_complete_task`).
+- Atributos usados en la demo: `toolname`, `tooldescription`,
+  `toolpropdescription`, `toolautosubmit`.
+- La demo declarativa envia formularios contra `https://httpbin.org/anything/*`
+  para mostrar respuesta sin backend propio.
 
 ## Archivos
 
-- `index.html`: estructura de la pagina, con modo imperativo y declarativo.
-- `declarative-app.js`: logica cliente para la demo declarativa sin backend.
+- `index.html`: demo JS imperativa (`registerTool`/`provideContext`).
+- `declarative.html`: demo declarativa por atributos HTML.
 - `styles.css`: estilos responsive.
 - `app.js`: estado de tareas y capa WebMCP.
 

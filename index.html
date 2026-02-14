@@ -42,85 +42,15 @@
       </section>
 
       <section class="card">
-        <h2>Variante declarativa (experimental)</h2>
+        <h2>Variante declarativa</h2>
         <p class="hint">
-          Definicion de tools con atributos <code>tool-*</code> en HTML. Se
-          resuelve en cliente para que funcione en GitHub Pages sin backend.
+          Si quieres probar la version basada en atributos HTML, abre la pagina
+          declarativa.
         </p>
-      </section>
-
-      <section class="card">
-        <h2>Agregar tarea (declarativo)</h2>
-        <form
-          id="add-form"
-          action="#"
-          method="post"
-          tool-name="decl_add_task"
-          tool-description="(Declarativo) Agrega una tarea nueva al listado."
-        >
-          <label for="add-title">Titulo</label>
-          <div class="row">
-            <input
-              id="add-title"
-              name="title"
-              type="text"
-              required
-              maxlength="120"
-              placeholder="Ej. Enviar reporte"
-              tool-prop-description="Texto de la nueva tarea"
-            />
-            <button type="submit">Enviar tool</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Listar tareas (declarativo)</h2>
-        <form
-          id="list-form"
-          action="#"
-          method="get"
-          tool-name="decl_list_tasks"
-          tool-description="(Declarativo) Recupera el listado actual de tareas."
-        >
-          <button type="submit">Ejecutar decl_list_tasks</button>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Completar tarea (declarativo)</h2>
-        <form
-          id="complete-form"
-          action="#"
-          method="post"
-          tool-name="decl_complete_task"
-          tool-description="(Declarativo) Marca una tarea como completada por id."
-        >
-          <label for="complete-id">ID de tarea</label>
-          <div class="row">
-            <input
-              id="complete-id"
-              name="id"
-              type="number"
-              min="1"
-              step="1"
-              required
-              placeholder="Ej. 3"
-              tool-prop-description="ID numerico de la tarea"
-            />
-            <button type="submit">Ejecutar decl_complete_task</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Resultado declarativo</h2>
-        <p class="hint">Salida JSON local de la variante declarativa.</p>
-        <pre id="tool-result" class="log"></pre>
+        <a href="./declarative.html">Ir a declarative.html</a>
       </section>
     </main>
 
     <script type="module" src="./app.js"></script>
-    <script type="module" src="./declarative-app.js"></script>
   </body>
 </html>

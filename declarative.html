@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebMCP Demo - Declarativa HTML</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <p class="kicker">Demo WebMCP Declarativa</p>
+        <h1>Tools por atributos HTML</h1>
+        <p class="badge warn">Experimental (Chrome Canary)</p>
+      </header>
+
+      <section class="card">
+        <p class="hint">
+          Esta pagina usa solo atributos HTML para declarar tools:
+          <code>toolname</code>, <code>tooldescription</code>,
+          <code>toolpropdescription</code> y <code>toolautosubmit</code>.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>add_task</h2>
+        <form
+          action="https://httpbin.org/anything/add-task"
+          method="post"
+          target="tool-result"
+          toolname="add_task"
+          tooldescription="Agrega una tarea nueva al listado."
+          toolautosubmit
+        >
+          <label for="add-title">Titulo</label>
+          <div class="row">
+            <input
+              id="add-title"
+              name="title"
+              type="text"
+              required
+              maxlength="120"
+              placeholder="Ej. Enviar reporte"
+              toolpropdescription="Texto de la nueva tarea"
+            />
+            <button type="submit">Enviar add_task</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>list_tasks</h2>
+        <form
+          action="https://httpbin.org/anything/list-tasks"
+          method="get"
+          target="tool-result"
+          toolname="list_tasks"
+          tooldescription="Recupera el listado actual de tareas."
+          toolautosubmit
+        >
+          <button type="submit">Enviar list_tasks</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>complete_task</h2>
+        <form
+          action="https://httpbin.org/anything/complete-task"
+          method="post"
+          target="tool-result"
+          toolname="complete_task"
+          tooldescription="Marca una tarea como completada por id."
+          toolautosubmit
+        >
+          <label for="complete-id">ID de tarea</label>
+          <div class="row">
+            <input
+              id="complete-id"
+              name="id"
+              type="number"
+              min="1"
+              step="1"
+              required
+              placeholder="Ej. 3"
+              toolpropdescription="ID numerico de la tarea"
+            />
+            <button type="submit">Enviar complete_task</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Resultado de envio</h2>
+        <p class="hint">Respuesta HTTP de los formularios declarativos.</p>
+        <iframe
+          name="tool-result"
+          title="Resultado de tools declarativas"
+          style="width: 100%; min-height: 360px; border: 1px solid #d9ded7; border-radius: 8px;"
+        ></iframe>
+      </section>
+
+      <section class="card">
+        <a href="./index.html">Volver a la demo JS (toolkit con JavaScript)</a>
+      </section>
+    </main>
+  </body>
+</html>
