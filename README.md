@@ -46,8 +46,8 @@ Usa atributos HTML en formularios (sin usar `navigator.modelContext`):
   HTML normal.
 - Atributos usados en la demo: `toolname`, `tooldescription`,
   `toolpropdescription`, `toolautosubmit`.
-- La demo declarativa envia formularios contra `https://httpbin.org/anything/*`
-  para mostrar respuesta sin backend propio.
+- La demo declarativa envia formularios al mismo origen (`declarative.html`) para
+  evitar errores de cross-origin frame en entornos de agente.
 
 ## Archivos
 

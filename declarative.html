@@ -25,9 +25,8 @@
       <section class="card">
         <h2>add_task</h2>
         <form
-          action="https://httpbin.org/anything/add-task"
-          method="post"
-          target="tool-result"
+          action="./declarative.html"
+          method="get"
           toolname="add_task"
           tooldescription="Agrega una tarea nueva al listado."
           toolautosubmit
@@ -51,9 +50,8 @@
       <section class="card">
         <h2>list_tasks</h2>
         <form
-          action="https://httpbin.org/anything/list-tasks"
+          action="./declarative.html"
           method="get"
-          target="tool-result"
           toolname="list_tasks"
           tooldescription="Recupera el listado actual de tareas."
           toolautosubmit
@@ -65,9 +63,8 @@
       <section class="card">
         <h2>complete_task</h2>
         <form
-          action="https://httpbin.org/anything/complete-task"
-          method="post"
-          target="tool-result"
+          action="./declarative.html"
+          method="get"
           toolname="complete_task"
           tooldescription="Marca una tarea como completada por id."
           toolautosubmit
@@ -90,13 +87,11 @@
       </section>
 
       <section class="card">
-        <h2>Resultado de envio</h2>
-        <p class="hint">Respuesta HTTP de los formularios declarativos.</p>
-        <iframe
-          name="tool-result"
-          title="Resultado de tools declarativas"
-          style="width: 100%; min-height: 360px; border: 1px solid #d9ded7; border-radius: 8px;"
-        ></iframe>
+        <h2>Nota</h2>
+        <p class="hint">
+          Esta demo declarativa evita iframes cross-origin para no disparar errores
+          de aislamiento entre origenes en el agente.
+        </p>
       </section>
 
       <section class="card">
