@@ -46,6 +46,9 @@ en formularios HTML (sin usar `navigator.modelContext` en ese bloque).
   HTML normal.
 - Para GitHub Pages, la demo declarativa usa JavaScript cliente local
   (`declarative-app.js`) y no requiere backend.
+- Para evitar colisiones con las tools imperativas de `app.js`, los nombres
+  declarativos usan prefijo `decl_` (`decl_add_task`, `decl_list_tasks`,
+  `decl_complete_task`).
 
 ## Archivos
 

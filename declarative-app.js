@@ -42,16 +42,16 @@ if (addForm && listForm && completeForm && resultEl) {
     try {
       const title = new FormData(addForm).get("title");
       const created = addTask(title);
-      printResult("add_task", created);
+      printResult("decl_add_task", created);
       addForm.reset();
     } catch (error) {
-      printResult("add_task", { error: error.message });
+      printResult("decl_add_task", { error: error.message });
     }
   });
 
   listForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    printResult("list_tasks", listTasks());
+    printResult("decl_list_tasks", listTasks());
   });
 
   completeForm.addEventListener("submit", (event) => {
@@ -59,10 +59,10 @@ if (addForm && listForm && completeForm && resultEl) {
     try {
       const id = new FormData(completeForm).get("id");
       const done = completeTask(id);
-      printResult("complete_task", done);
+      printResult("decl_complete_task", done);
       completeForm.reset();
     } catch (error) {
-      printResult("complete_task", { error: error.message });
+      printResult("decl_complete_task", { error: error.message });
     }
   });
 

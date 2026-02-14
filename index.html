@@ -55,8 +55,8 @@
           id="add-form"
           action="#"
           method="post"
-          tool-name="add_task"
-          tool-description="Agrega una tarea nueva al listado."
+          tool-name="decl_add_task"
+          tool-description="(Declarativo) Agrega una tarea nueva al listado."
         >
           <label for="add-title">Titulo</label>
           <div class="row">
@@ -80,10 +80,10 @@
           id="list-form"
           action="#"
           method="get"
-          tool-name="list_tasks"
-          tool-description="Recupera el listado actual de tareas."
+          tool-name="decl_list_tasks"
+          tool-description="(Declarativo) Recupera el listado actual de tareas."
         >
-          <button type="submit">Ejecutar list_tasks</button>
+          <button type="submit">Ejecutar decl_list_tasks</button>
         </form>
       </section>
 
@@ -93,8 +93,8 @@
           id="complete-form"
           action="#"
           method="post"
-          tool-name="complete_task"
-          tool-description="Marca una tarea como completada por id."
+          tool-name="decl_complete_task"
+          tool-description="(Declarativo) Marca una tarea como completada por id."
         >
           <label for="complete-id">ID de tarea</label>
           <div class="row">
@@ -108,7 +108,7 @@
               placeholder="Ej. 3"
               tool-prop-description="ID numerico de la tarea"
             />
-            <button type="submit">Ejecutar complete_task</button>
+            <button type="submit">Ejecutar decl_complete_task</button>
           </div>
         </form>
       </section>
