@@ -46,13 +46,16 @@ Usa atributos HTML en formularios (sin usar `navigator.modelContext`):
   HTML normal.
 - Atributos usados en la demo: `toolname`, `tooldescription`,
   `toolpropdescription`, `toolautosubmit`.
-- La demo declarativa envia formularios al mismo origen (`declarative.html`) para
-  evitar errores de cross-origin frame en entornos de agente.
+- La demo declarativa envia formularios al mismo origen (`declarative-result.html`)
+  para evitar errores de cross-origin frame en entornos de agente.
+- `declarative-result.html` emite resultado en `application/ld+json`
+  (`schema.org/Message`) y guarda tareas en `localStorage`.
 
 ## Archivos
 
 - `index.html`: demo JS imperativa (`registerTool`/`provideContext`).
 - `declarative.html`: demo declarativa por atributos HTML.
+- `declarative-result.html`: pagina de respuesta declarativa (JSON-LD + estado).
 - `styles.css`: estilos responsive.
 - `app.js`: estado de tareas y capa WebMCP.
 

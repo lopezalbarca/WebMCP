@@ -25,12 +25,13 @@
       <section class="card">
         <h2>add_task</h2>
         <form
-          action="./declarative.html"
+          action="./declarative-result.html"
           method="get"
           toolname="add_task"
           tooldescription="Agrega una tarea nueva al listado."
           toolautosubmit
         >
+          <input type="hidden" name="tool" value="add_task" />
           <label for="add-title">Titulo</label>
           <div class="row">
             <input
@@ -50,12 +51,13 @@
       <section class="card">
         <h2>list_tasks</h2>
         <form
-          action="./declarative.html"
+          action="./declarative-result.html"
           method="get"
           toolname="list_tasks"
           tooldescription="Recupera el listado actual de tareas."
           toolautosubmit
         >
+          <input type="hidden" name="tool" value="list_tasks" />
           <button type="submit">Enviar list_tasks</button>
         </form>
       </section>
@@ -63,12 +65,13 @@
       <section class="card">
         <h2>complete_task</h2>
         <form
-          action="./declarative.html"
+          action="./declarative-result.html"
           method="get"
           toolname="complete_task"
           tooldescription="Marca una tarea como completada por id."
           toolautosubmit
         >
+          <input type="hidden" name="tool" value="complete_task" />
           <label for="complete-id">ID de tarea</label>
           <div class="row">
             <input
@@ -89,8 +92,8 @@
       <section class="card">
         <h2>Nota</h2>
         <p class="hint">
-          Esta demo declarativa evita iframes cross-origin para no disparar errores
-          de aislamiento entre origenes en el agente.
+          Esta demo declarativa usa una pagina de resultado same-origin para evitar
+          errores de aislamiento entre origenes en el agente.
         </p>
       </section>
 
